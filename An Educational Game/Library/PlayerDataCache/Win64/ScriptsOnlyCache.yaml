@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CharMovement
+    - CharVectorPrint
     - PauseMenu
     - SceneManagement
     Cinemachine.dll:
@@ -87,17 +88,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2628}
     - Class: 114
-      Script: {instanceID: 2738}
+      Script: {instanceID: 2692}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 3034}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 3780}
+      Script: {instanceID: 3036}
     - Class: 114
-      Script: {instanceID: 4740}
+      Script: {instanceID: 3782}
     - Class: 114
-      Script: {instanceID: 4802}
+      Script: {instanceID: 4742}
+    - Class: 114
+      Script: {instanceID: 4804}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -156,19 +159,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2608}
     - Class: 114
-      Script: {instanceID: 2738}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 3034}
+      Script: {instanceID: 3036}
     - Class: 114
-      Script: {instanceID: 3948}
+      Script: {instanceID: 3950}
     - Class: 114
-      Script: {instanceID: 4076}
+      Script: {instanceID: 4078}
     - Class: 114
-      Script: {instanceID: 4376}
+      Script: {instanceID: 4378}
     - Class: 114
-      Script: {instanceID: 4518}
+      Script: {instanceID: 4520}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -486,6 +489,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineHardLookAt
+  - hash:
+      serializedVersion: 2
+      Hash: 83e769eee07fc231384c812eedbb8224
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CharVectorPrint
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1106,7 +1115,7 @@ ScriptsOnlyBuild:
     className: CinemachineBlendListCamera
   - hash:
       serializedVersion: 2
-      Hash: e2bbd066fdcd6d57313e361bff18ead8
+      Hash: 91ef4c5635e56fe891ada751dd5c71b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu

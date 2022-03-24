@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject CSharpMenuUI;
     public GameObject ControlsUI;
+    public GameObject tipUI;
+    public GameObject vectorsUI;
 
     private void Start()
     {
@@ -39,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         CSharpMenuUI.SetActive(false);
         ControlsUI.SetActive(true);
+        tipUI.SetActive(true);
+        vectorsUI.SetActive(true);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
@@ -48,6 +52,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         ControlsUI.SetActive(false);
+        tipUI.SetActive(false);
+        vectorsUI.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }
