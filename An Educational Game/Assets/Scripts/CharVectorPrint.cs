@@ -22,6 +22,7 @@ public class CharVectorPrint : MonoBehaviour
         float playerRotationx = player.transform.eulerAngles.x;
         float playerRotationy = player.transform.eulerAngles.y;
         float playerRotationz = player.transform.eulerAngles.z;
-        text.text = "Position = " + player.transform.position.ToString("F0") + "\n" + "Rotation (Deg) = (X: " + playerRotationx + ", Y: " + playerRotationy.ToString("F0") + ", Z: " + playerRotationz + ")";
+        text.text = "Position = (X: " + player.transform.position.x.ToString("F0") + ", Y: " + player.transform.position.y.ToString("F0") + ", Z: " + player.transform.position.z.ToString("F0") + ")" +
+            "\n" + "Rotation (Deg) = (X: " + playerRotationx + ", Y: " + playerRotationy.ToString("F0") + ", Z: " + playerRotationz + ")";
     }
 }
