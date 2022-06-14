@@ -20,7 +20,7 @@ public class FoVInEditor : Editor
         Handles.DrawLine(FoV.transform.position, FoV.transform.position + viewAngleB * FoV.viewRadius);
 
         Handles.color = Color.green;
-        foreach (Transform visibleTarget in FoV.visibleTargets)
+        foreach (Transform visibleTarget in FoV.targetDistanceList)
         {
             Handles.DrawLine(FoV.transform.position, visibleTarget.position);
         }

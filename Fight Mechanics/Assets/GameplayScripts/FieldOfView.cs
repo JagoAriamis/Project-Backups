@@ -10,7 +10,7 @@ public class FieldOfView : MonoBehaviour
     public float viewAngle;
 
     public LayerMask layerMask;
-    public List<Transform> visibleTargets = new List<Transform>();
+    public List<Transform> targetDistanceList = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindTargets()
     {
-        visibleTargets.Clear();
+        targetDistanceList.Clear();
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, layerMask);
 
@@ -40,7 +40,7 @@ public class FieldOfView : MonoBehaviour
 
             if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
             {
-                visibleTargets.Add(target);
+                targetDistanceList.Add(target);
                 PartyListSortByDist();
             }
         }
@@ -48,7 +48,7 @@ public class FieldOfView : MonoBehaviour
 
     void PartyListSortByDist()
     {
-        visibleTargets.Sort(delegate(Transform a, Transform b) // Delegate = for callbacks and communicating information between two parties
+        targetDistanceList.Sort(delegate(Transform a, Transform b) // Delegate = for callbacks and communicating information between two parties
         {
             return DistanceToTarget(transform.position, a.transform.position).CompareTo(DistanceToTarget(transform.position, b.transform.position));
         });
