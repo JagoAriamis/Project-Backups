@@ -14,7 +14,7 @@ public class FieldOfView : MonoBehaviour
 
 
     // Should dynamically return targets based on either of the return target methods
-    public delegate void ReturnTargets(string distanceType, params Transform[] targets);
+    //public delegate void ReturnTargets(string distanceType, params Transform[] targets);
 
     // Start is called before the first frame update
     void Start()
@@ -58,16 +58,6 @@ public class FieldOfView : MonoBehaviour
             // Executable = Using my own distance calculation, for every transform in the List, return the transforms in order of closest to furthest
             return DistanceToTarget(transform.position, a.transform.position).CompareTo(DistanceToTarget(transform.position, b.transform.position));
         });
-    }
-
-    void ReturnNearestTargets(params Transform[] targets)
-    {
-        // Return closest targets
-    }
-
-    void ReturnFurthestTargets(params Transform[] targets)
-    {
-        // Return furthest targets
     }
 
     public Vector3 AngleDirection(float angleInDegrees, bool angleIsGlobal)

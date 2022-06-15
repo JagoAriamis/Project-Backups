@@ -6,7 +6,7 @@ using TMPro;
 
 public class BossMechanics : MonoBehaviour
 {
-    GameObject boss;
+    public GameObject magicBoom;
 
     bool mechSelected = false;
 
@@ -15,10 +15,11 @@ public class BossMechanics : MonoBehaviour
 
     FieldOfView FoV;
 
+    public delegate void NearsightFarsight();
+
     // Start is called before the first frame update
     void Start()
     {
-        boss = GameObject.Find("Boss");
         SkillText = GameObject.Find("Skill Text").GetComponent<TextMeshProUGUI>();
         CastBar.gameObject.SetActive(false);
         FoV = GetComponent<FieldOfView>();
@@ -60,8 +61,15 @@ public class BossMechanics : MonoBehaviour
         CastBar.gameObject.SetActive(false);
         CastBarReset();
 
-        Debug.Log(FoV.targetDistanceList[0].position);
-        Debug.Log(FoV.targetDistanceList[1].position);
+        Transform target1 = FoV.targetDistanceList[0];
+        Transform target2 = FoV.targetDistanceList[1];
+
+        Instantiate(magicBoom, new Vector3(target1.position.x, 0, target1.position.z), Quaternion.identity);
+
+        Instantiate(magicBoom, new Vector3(target2.position.x, 0, target2.position.z), Quaternion.identity);
+
+        Debug.Log(target1.position);
+        Debug.Log(target2.position);
 
         mechSelected = false;
     }
@@ -74,6 +82,9 @@ public class BossMechanics : MonoBehaviour
 
         Transform last = FoV.targetDistanceList[FoV.targetDistanceList.Count - 1];
         Transform secondToLast = FoV.targetDistanceList[FoV.targetDistanceList.Count - 2];
+
+        Instantiate(magicBoom, new Vector3(last.position.x, 0, last.position.z), Quaternion.identity);
+        Instantiate(magicBoom, new Vector3(secondToLast.position.x, 0, secondToLast.position.z), Quaternion.identity);
 
         Debug.Log(last.position);
         Debug.Log(secondToLast.position);

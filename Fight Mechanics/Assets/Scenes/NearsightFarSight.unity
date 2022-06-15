@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 255980067}
   m_Layer: 6
   m_Name: Healer 2
-  m_TagString: Untagged
+  m_TagString: Healer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 345568968}
   m_Layer: 6
   m_Name: Tank 1
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,6 +590,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497706870}
   m_CullTransparentMesh: 1
+--- !u!1 &685850963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685850965}
+  - component: {fileID: 685850964}
+  m_Layer: 0
+  m_Name: PartyBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &685850964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685850963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7cade2fd1d389349bf4ea74c5095613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tanks:
+  - {fileID: 345568967}
+  - {fileID: 2022026356}
+  Healers:
+  - {fileID: 980116990}
+  - {fileID: 255980066}
+  DPS:
+  - {fileID: 1768811081}
+  - {fileID: 797098001}
+  - {fileID: 831160480}
+  - {fileID: 1298215988}
+--- !u!4 &685850965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685850963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.1300306, y: 0.44950247, z: 3.587696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706963533
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +693,7 @@ GameObject:
   - component: {fileID: 797098002}
   m_Layer: 6
   m_Name: DPS 2
-  m_TagString: Untagged
+  m_TagString: DPS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -736,7 +790,7 @@ GameObject:
   - component: {fileID: 831160481}
   m_Layer: 6
   m_Name: DPS 3
-  m_TagString: Untagged
+  m_TagString: DPS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,7 +887,7 @@ GameObject:
   - component: {fileID: 980116991}
   m_Layer: 6
   m_Name: Healer 1
-  m_TagString: Untagged
+  m_TagString: Healer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1213,7 +1267,7 @@ GameObject:
   - component: {fileID: 1298215989}
   m_Layer: 6
   m_Name: DPS 4
-  m_TagString: Untagged
+  m_TagString: DPS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1629,6 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14eac85dc1a26d94b81365385309cf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicBoom: {fileID: 2362954135519258473, guid: 0fe1ac9cd3683634fb670d560b706629, type: 3}
   CastBar: {fileID: 1774760716}
 --- !u!1 &1768811081
 GameObject:
@@ -1644,7 +1699,7 @@ GameObject:
   - component: {fileID: 1768811082}
   m_Layer: 6
   m_Name: DPS 1
-  m_TagString: Untagged
+  m_TagString: DPS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1832,7 +1887,7 @@ GameObject:
   - component: {fileID: 2022026357}
   m_Layer: 6
   m_Name: Tank 2
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
