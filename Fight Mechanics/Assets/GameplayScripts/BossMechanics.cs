@@ -13,12 +13,15 @@ public class BossMechanics : MonoBehaviour
     public Slider CastBar;
     TextMeshProUGUI SkillText;
 
+    FieldOfView FoV;
+
     // Start is called before the first frame update
     void Start()
     {
         boss = GameObject.Find("Boss");
         SkillText = GameObject.Find("Skill Text").GetComponent<TextMeshProUGUI>();
         CastBar.gameObject.SetActive(false);
+        FoV = GetComponent<FieldOfView>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,10 @@ public class BossMechanics : MonoBehaviour
         Debug.Log("Cast Nearsight");
         CastBar.gameObject.SetActive(false);
         CastBarReset();
+
+        Debug.Log(FoV.targetDistanceList[0].position);
+        Debug.Log(FoV.targetDistanceList[1].position);
+
         mechSelected = false;
     }
 
@@ -64,6 +71,13 @@ public class BossMechanics : MonoBehaviour
         Debug.Log("Cast Farsight");
         CastBar.gameObject.SetActive(false);
         CastBarReset();
+
+        Transform last = FoV.targetDistanceList[FoV.targetDistanceList.Count - 1];
+        Transform secondToLast = FoV.targetDistanceList[FoV.targetDistanceList.Count - 2];
+
+        Debug.Log(last.position);
+        Debug.Log(secondToLast.position);
+
         mechSelected = false;
     }
 

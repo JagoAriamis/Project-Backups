@@ -12,6 +12,10 @@ public class FieldOfView : MonoBehaviour
     public LayerMask layerMask;
     public List<Transform> targetDistanceList = new List<Transform>();
 
+
+    // Should dynamically return targets based on either of the return target methods
+    public delegate void ReturnTargets(string distanceType, params Transform[] targets);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,10 +52,22 @@ public class FieldOfView : MonoBehaviour
 
     void PartyListSortByDist()
     {
-        targetDistanceList.Sort(delegate(Transform a, Transform b) // Delegate = for callbacks and communicating information between two parties
+        // Condition = Method name (sort) and type parameter for what will be sorted. In this case, the transforms in the List
+        targetDistanceList.Sort((Transform a, Transform b) => // => = Lambda expression. Calls the delegate Sort method from the List class without having to write my own (I think?)
         {
+            // Executable = Using my own distance calculation, for every transform in the List, return the transforms in order of closest to furthest
             return DistanceToTarget(transform.position, a.transform.position).CompareTo(DistanceToTarget(transform.position, b.transform.position));
         });
+    }
+
+    void ReturnNearestTargets(params Transform[] targets)
+    {
+        // Return closest targets
+    }
+
+    void ReturnFurthestTargets(params Transform[] targets)
+    {
+        // Return furthest targets
     }
 
     public Vector3 AngleDirection(float angleInDegrees, bool angleIsGlobal)
@@ -63,7 +79,7 @@ public class FieldOfView : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    float DistanceToTarget(Vector3 a, Vector3 b)
+    float DistanceToTarget(Vector3 a, Vector3 b) // We don't need the Y co-ordinate, so to optimise, it's been removed
     {
         float x = a.x - b.x;
         float z = a.z - b.z;
