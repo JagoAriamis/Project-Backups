@@ -15,7 +15,10 @@ public class BossMechanics : MonoBehaviour
 
     FieldOfView FoV;
 
+    PartyBehaviour partyBehaviour;
+
     public delegate void NearsightFarsight();
+    public NearsightFarsight handle;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class BossMechanics : MonoBehaviour
         SkillText = GameObject.Find("Skill Text").GetComponent<TextMeshProUGUI>();
         CastBar.gameObject.SetActive(false);
         FoV = GetComponent<FieldOfView>();
+        partyBehaviour = GameObject.Find("PartyBrain").GetComponent<PartyBehaviour>();
     }
 
     // Update is called once per frame
@@ -31,6 +35,11 @@ public class BossMechanics : MonoBehaviour
         if (mechSelected == false)
         {
             MechanicSelect();
+        }
+
+        if (handle != null)
+        {
+            handle();
         }
     }
 
@@ -72,6 +81,7 @@ public class BossMechanics : MonoBehaviour
         Debug.Log(target2.position);
 
         mechSelected = false;
+        handle -= Nearsight;
     }
 
     void Farsight()
@@ -90,6 +100,7 @@ public class BossMechanics : MonoBehaviour
         Debug.Log(secondToLast.position);
 
         mechSelected = false;
+        handle -= Farsight;
     }
 
     IEnumerator NearsightCast()
@@ -98,7 +109,7 @@ public class BossMechanics : MonoBehaviour
         CastBar.gameObject.SetActive(true);
         StartCoroutine(CastBarFill(5f));
         yield return new WaitForSeconds(5);
-        Nearsight();
+        handle += Nearsight;
     }
 
     IEnumerator FarsightCast()
@@ -107,7 +118,7 @@ public class BossMechanics : MonoBehaviour
         CastBar.gameObject.SetActive(true);
         StartCoroutine(CastBarFill(5f));
         yield return new WaitForSeconds(5);
-        Farsight();
+        handle += Farsight;
     }
 
     IEnumerator CastBarFill(float castTime)
