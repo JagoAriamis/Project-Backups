@@ -69,7 +69,7 @@ public class FieldOfView : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    float DistanceToTarget(Vector3 a, Vector3 b) // We don't need the Y co-ordinate, so to optimise, it's been removed
+    public float DistanceToTarget(Vector3 a, Vector3 b) // We don't need the Y co-ordinate, so to optimise, it's been removed
     {
         float x = a.x - b.x;
         float z = a.z - b.z;

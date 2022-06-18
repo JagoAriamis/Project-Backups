@@ -315,6 +315,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/EditorScripts/FoVInEditor.cs"
 "Assets/GameplayScripts/BossMechanics.cs"
+"Assets/GameplayScripts/BossTargetRing.cs"
 "Assets/GameplayScripts/FieldOfView.cs"
 "Assets/GameplayScripts/Flee.cs"
 "Assets/GameplayScripts/MagicBoom.cs"

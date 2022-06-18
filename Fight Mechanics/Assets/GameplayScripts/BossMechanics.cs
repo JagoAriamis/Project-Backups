@@ -15,7 +15,11 @@ public class BossMechanics : MonoBehaviour
 
     FieldOfView FoV;
 
-    PartyBehaviour partyBehaviour;
+    [HideInInspector]
+    public float targetRing;
+
+    [HideInInspector]
+    public int mechNum = 0;
 
     public delegate void NearsightFarsight();
     public NearsightFarsight handle;
@@ -26,7 +30,7 @@ public class BossMechanics : MonoBehaviour
         SkillText = GameObject.Find("Skill Text").GetComponent<TextMeshProUGUI>();
         CastBar.gameObject.SetActive(false);
         FoV = GetComponent<FieldOfView>();
-        partyBehaviour = GameObject.Find("PartyBrain").GetComponent<PartyBehaviour>();
+        targetRing = FoV.viewRadius;
     }
 
     // Update is called once per frame
@@ -49,6 +53,8 @@ public class BossMechanics : MonoBehaviour
         {
             return;
         }
+
+        mechNum = 0;
 
         int mechanicSelector = Random.Range(0, 2);
 
@@ -106,6 +112,7 @@ public class BossMechanics : MonoBehaviour
     IEnumerator NearsightCast()
     {
         SkillText.SetText("Nearsight");
+        mechNum = 1;
         CastBar.gameObject.SetActive(true);
         StartCoroutine(CastBarFill(5f));
         yield return new WaitForSeconds(5);
@@ -115,6 +122,7 @@ public class BossMechanics : MonoBehaviour
     IEnumerator FarsightCast()
     {
         SkillText.SetText("Farsight");
+        mechNum = 2;
         CastBar.gameObject.SetActive(true);
         StartCoroutine(CastBarFill(5f));
         yield return new WaitForSeconds(5);
