@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NearsightFarSight.unity
     guid: 0ae9721a7aa29cb489ec88ed18e919ad
+  - enabled: 1
+    path: Assets/Scenes/TurnBasedCombat.unity
+    guid: 692a8a9ad43a5df4ab7a7efb0887b0db
   m_configObjects: {}
