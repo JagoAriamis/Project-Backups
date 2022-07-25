@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TurnBasedCombat.unity
     guid: 692a8a9ad43a5df4ab7a7efb0887b0db
+  - enabled: 1
+    path: Assets/Scenes/88mph.unity
+    guid: f2bb612e65ad32c4982734fb33ea6a56
   m_configObjects: {}
